@@ -3,9 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-add_customer(-).cy.js
-purchhase_toy.cy.js
+payment_gateway(-).cy.js
 
+1-getting-started/
+2-advanced-examples/
 # User-specific files
 *.rsuser
 *.suo

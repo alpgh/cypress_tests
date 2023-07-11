@@ -15,25 +15,42 @@ describe('Login and logout Test', () => {
     cy.getNavbarElement('Telecom Project','https://demo.guru99.com/telecom/index.html');
     cy.getNavbarElement('Payment Gateway Project','https://demo.guru99.com/payment-gateway/index.php');
     cy.getNavbarElement('New Tours','https://demo.guru99.com/test/newtours/');
-      cy.log('CheckingMainElements');
-    cy.get('[class="barone"]').should('be.visible').and('have.text', 'Guru99 BankAccess');
-    cy.get('form[name="frmLogin"] td:nth-child(1)').should('be.visible').and('contain', 'UserID');
-    cy.get('form[name="frmLogin"] td:nth-child(1)').should('be.visible').and('contain', 'Password');
-    cy.get('form[name="frmLogin"] input[name="uid"]').should('be.visible');
-    cy.get('form[name="frmLogin"] input[name="password"]').should('be.visible');   
-    cy.get('body > div:nth-child(31) > ol').should('be.visible').and('contain', 'UserID');
-    cy.get('body > div:nth-child(31) > ol').should('be.visible').and('contain', 'Password');
-      cy.log('Entering correct login data')
+      
+    cy.log('CheckingMainElements');
+    cy.get('[class="barone"]')
+    .should('be.visible')
+    .and('have.text', 'Guru99 BankAccess');
+    cy.get('form[name="frmLogin"] td:nth-child(1)')
+    .should('be.visible')
+    .and('contain', 'UserID');
+    cy.get('form[name="frmLogin"] td:nth-child(1)')
+    .should('be.visible')
+    .and('contain', 'Password');
+    cy.get('form[name="frmLogin"] input[name="uid"]')
+    .should('be.visible');
+    cy.get('form[name="frmLogin"] input[name="password"]')
+    .should('be.visible');   
+    cy.get('body > div:nth-child(31) > ol')
+    .should('be.visible')
+    .and('contain', 'UserID');
+    cy.get('body > div:nth-child(31) > ol')
+    .should('be.visible')
+    .and('contain', 'Password');
+  
+    cy.log('Entering correct login data')
     cy.get('input[name="uid"]').type(USER_ID);    
     cy.get('input[name="password"]').type(PASSWORD);
-      cy.log('Login and logout checking')
-    cy.get('input[name="btnLogin"]').click().wait(2000);
+    
+    cy.log('Login and logout checking')
+    cy.get('input[name="btnLogin"]').click()
+    .wait(1000);
     cy.get('a[href="Logout.php"]').click();
+    
     cy.on('window:alert', (text) => {
       expect(text).to.eq('You Have Succesfully Logged Out!!');
   });
     cy.on('window:confirm', () => true);
-      cy.log('Reset button checking')
+    
   });
   
 });

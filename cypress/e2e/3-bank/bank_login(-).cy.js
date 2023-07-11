@@ -8,13 +8,13 @@ describe('Login negative test', () => {
     cy.visit('https://demo.guru99.com/Agile_Project/Agi_V1/');
       cy.get('[class="barone"]')
       .should('be.visible')
-      .should('have.text', 'Guru99 BankAccess', { timeout: 1000 });
+      .and('have.text', 'Guru99 BankAccess', { timeout: 1000 });
       cy.get('form[name="frmLogin"] td:nth-child(1)')
       .should('be.visible')
-      .should('contain', 'UserID');
+      .and('contain', 'UserID');
       cy.get('form[name="frmLogin"] td:nth-child(1)')
       .should('be.visible')
-      .should('contain', 'Password');
+      .and('contain', 'Password');
       cy.get('form[name="frmLogin"] input[name="uid"]')
       .should('be.visible');
       cy.get('form[name="frmLogin"] input[name="password"]')
@@ -24,6 +24,7 @@ describe('Login negative test', () => {
     cy.get('input[name="password"]').type('guru98');
     cy.get('input[name="btnLogin"]').click();
     cy.wait(1000);
+    
     cy.on('window:alert', (text) => {
       expect(text).to.eq('User or Password is not valid');
   });
@@ -38,6 +39,7 @@ describe('Login negative test', () => {
     cy.on('window:confirm', () => true);
         
   });
+  
   it('Reset button functionality', () => {
     
     cy.visit(BASE_URL);

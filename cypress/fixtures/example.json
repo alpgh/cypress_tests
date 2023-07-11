@@ -1,5 +1,17 @@
-{
+{"user": {
   "name": "Using fixtures to represent data",
   "email": "hello@cypress.io",
   "body": "Fixtures are a great way to mock data for responses to routes"
+},
+
+"errorMessage": {
+  "nums": "Numbers are not allowed",
+  "chars": "Characters are not allowed",
+  "specChars": "Special characters are not allowed",
+  "email": "Email-ID is not valid",
+  "space": "First character can not have space",
+  "empty": "must not be blank",
+  "cyrillic": "cyrillic letters are not allowed"
+
+}
 }

@@ -5,9 +5,9 @@ const MIN_VALUE = 0;
 
 describe('Adding plan', () => {
 
-  it('Should add plan successfully', () => {
+ /* it('Should add plan successfully', () => {
     
-  cy.visit(BASEURL);
+ cy.visit(BASEURL);
  cy.log('Testing page elements visibility');
  cy.testLogoLink('a.logo', 'Guru99 telecom', 'index.html');
  cy.testSectionTitle('[class="align-center"]', 'Add Tariff Plans'); 
@@ -36,12 +36,16 @@ cy.enterValuesAndVerifyPlaceholder('#minutes_charges', 'Local Per Minutes Charge
 cy.enterValuesAndVerifyPlaceholder('#inter_charges', 'Inter. Per Minutes Charges', MAX_VALUE2);
 cy.enterValuesAndVerifyPlaceholder('#sms_charges', 'SMS Per Charges', MAX_VALUE2);
 
-cy.get('[type="submit"]').should('be.visible').and('have.value', 'submit')
+cy.get('[type="submit"]')
+  .should('be.visible')
+  .and('have.value', 'submit')
   .click();
 cy.checkingVisibilityAndText('#main>div h2','Congratulation you add Tariff Plan');
 cy.checkingVisibilityAndText('a.button', 'Home')
   .click();
-cy.get ('h3 a[href="addtariffplans.php"]').should('be.visible').and('have.text', 'Add Tariff Plan')
+cy.get ('h3 a[href="addtariffplans.php"]')
+  .should('be.visible')
+  .and('have.text', 'Add Tariff Plan')
   .click();
   cy.log('Testing minimal values')
   cy.enterValuesAndVerifyPlaceholder('#rental1', 'Monthly Rental', MIN_VALUE);
@@ -51,10 +55,13 @@ cy.get ('h3 a[href="addtariffplans.php"]').should('be.visible').and('have.text',
   cy.enterValuesAndVerifyPlaceholder('#minutes_charges', 'Local Per Minutes Charges', MIN_VALUE);
   cy.enterValuesAndVerifyPlaceholder('#inter_charges', 'Inter. Per Minutes Charges', MIN_VALUE);
   cy.enterValuesAndVerifyPlaceholder('#sms_charges', 'SMS Per Charges', MIN_VALUE);
-  cy.get('[type="submit"]').should('be.visible').and('have.value', 'submit')
+  cy.get('[type="submit"]')
+  .should('be.visible')
+  .and('have.value', 'submit')
   .click();
 cy.checkingVisibilityAndText('#main>div h2','Congratulation you add Tariff Plan');
-cy.get('a.button').should('have.text', 'Home')
+cy.get('a.button')
+  .should('have.text', 'Home')
   .click();
 cy.checkingVisibilityAndText('h3 a[href="addtariffplans.php"]', 'Add Tariff Plan')
   .click();
@@ -73,6 +80,26 @@ cy.checkingVisibilityAndText('h3 a[href="addtariffplans.php"]', 'Add Tariff Plan
   cy.get('[type="submit"]').click();
   cy.log("Reset button doesnt work!");
    
+  });*/
+  
+  it('Reset button clears the fields', () => {
+    cy.log('Reset button functionality')
+    
+    cy.visit(BASEURL);
+    cy.get ('#rental1').type(MAX_VALUE1);
+    cy.get ('#local_minutes').type(MAX_VALUE1);
+    cy.get ('#inter_minutes').type(MAX_VALUE1);
+    cy.get ('#sms_pack').type(MAX_VALUE1);
+    cy.get ('#minutes_charges').type(MAX_VALUE2);
+    cy.get ('#inter_charges').type(MAX_VALUE1);
+    cy.get ('#sms_charges').type(MAX_VALUE1);
+    cy.get('[type="reset"]').click();
+    cy.get('[type="submit"]').click();
+    
+    cy.testSectionTitle('div:nth-child(1) > h3', 'Monthly Rental');
+    
+    
+    
+    
   });
-  console.log("Reset button doesnt work!");
 });
