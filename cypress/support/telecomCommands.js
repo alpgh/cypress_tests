@@ -7,7 +7,8 @@
     cy.get(selector)
       .should('be.visible')
       .should('have.text', expectedText)
-      .should('have.attr', 'href', expectedHref);
+      .should('have.attr', 'href', expectedHref)
+      .should("have.css", "color", "rgb(246, 117, 94)")
   });
   
   Cypress.Commands.add('testSectionTitle', (selector, expectedText) => {
@@ -18,15 +19,17 @@
         expect(text).to.equal(expectedText);
       });
   });
+
   Cypress.Commands.add('enterValuesAndVerifyPlaceholder', (selector, placeholder, value) => {
     cy.get(selector)
       .should('have.attr', 'placeholder', placeholder)
       .should('be.visible')
       .type(value);
   });
+  
   Cypress.Commands.add('visibilityVerifyPlaceholder', (selector, placeholder) => {
     cy.get(selector)
-      .should('have.attr', 'placeholder', placeholder)
+      .should('have.value', 'placeholder', placeholder)
       .should('be.visible');
       
   });
@@ -37,14 +40,13 @@
   });
 
 
-  Cypress.Commands.add('checkUserStatus', () => {
+  Cypress.Commands.add('checkUserStatusIsActive', (x) => {
     cy.get(':nth-child(2) h3')
       .invoke('text')
       .then((text) => {
         const custID = text.trim();
         cy.log(custID);
-       
-  
+
         cy.get('a.button[href="index.html"]').click();
         cy.get('div.flex-item.left :nth-child(2) h3').click();
   
@@ -60,9 +62,11 @@
         cy.get('font[size="5"]')
           .should('be.visible')
           .then(($font) => {
-            const status = $font.text().trim() === 'ACTIVE' ? 'ACTIVE' : 'INACTIVE';
-  
-            cy.log(status);
+            if(x==true){
+              expect($font.text().trim()).to.eq('ACTIVE');
+            }else{
+              expect($font.text().trim()).to.eq('INACTIVE');
+            }
           });
       });
   });
@@ -78,8 +82,24 @@
     });
   });
 
-  
+  Cypress.Commands.add('paymentClearFields', () => {
+    cy.get('#month').select('');
+    cy.get('#year').select('');
+    cy.get('#cvv_code').clear();
+    cy.get('#card_nmuber').clear();
+  });
 
+  
+  Cypress.Commands.add('fillPaymentFields', () => {
+    cy.fixture('card.json').then((cardData) => {
+      cy.get('#card_nmuber').type(cardData.validCard.number);
+      cy.get('#month').select(cardData.validCard.month);
+      cy.get('#year').select(cardData.validCard.year);
+      cy.get('#cvv_code').type(cardData.validCard.cvv);
+
+    });
+  });
+  
   
   
   

@@ -1,0 +1,10 @@
+{
+    "BASEURL": "https://demo.guru99.com/Agile_Project/Agi_V1/",
+    "USER_ID": "1303",
+    "PASSWORD": "Guru99",
+    "INCORRECT_LOG": "1302",
+    "INCORRECT_PASS": "Guru98",
+    "SUCCESS_URL": "https://demo.guru99.com/Agile_Project/Agi_V1/customer/Customerhomepage.php"
+
+    
+}

@@ -1,0 +1,159 @@
+[
+    {
+        "elementName": "Selenium ",
+        "pageName": "Flash Movie Demo",
+        "ref": "../../test/flash-testing.html",
+        "pageLink": "https://demo.guru99.com/test/flash-testing.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Radio & Checkbox Demo",
+        "ref": "../../test/radio.html",
+        "pageLink": "https://demo.guru99.com/test/radio.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Table Demo",
+        "ref": "../../test/table.html",
+        "pageLink": "https://demo.guru99.com/test/table.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Accessing Link",
+        "ref": "../../test/link.html",
+        "pageLink": "https://demo.guru99.com/test/link.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Ajax Demo",
+        "ref": "../../test/ajax.html",
+        "pageLink": "https://demo.guru99.com/test/ajax.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Inside & Outside Block Level Tag",
+        "ref": "../../test/block.html",
+        "pageLink": "https://demo.guru99.com/test/block.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Delete Customer Form",
+        "ref": "../../test/delete_customer.php",
+        "pageLink": "https://demo.guru99.com/test/delete_customer.php"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Yahoo",
+        "ref": "../../test/yahoo.html",
+        "pageLink": "https://demo.guru99.com/test/yahoo.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Tooltip",
+        "ref": "../../test/tooltip.html",
+        "pageLink": "https://demo.guru99.com/test/tooltip.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "File Upload",
+        "ref": "../../test/upload/",
+        "pageLink": "https://demo.guru99.com/test/upload/"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Login",
+        "ref": "../../test/login.html",
+        "pageLink": "https://demo.guru99.com/test/login.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Social Icon",
+        "ref": "../../test/social-icon.html",
+        "pageLink": "https://demo.guru99.com/test/social-icon.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Selenium Auto IT",
+        "ref": "../../test/autoit.html",
+        "pageLink": "https://demo.guru99.com/test/autoit.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Selenium IDE Test",
+        "ref": "../../test/facebook.html",
+        "pageLink": "https://demo.guru99.com/test/facebook.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Guru99 Demo Page",
+        "ref": "../../test/guru99home/",
+        "pageLink": "https://demo.guru99.com/test/guru99home/"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Scrollbar Demo",
+        "ref": "../../test/guru99home/scrolling.html",
+        "pageLink": "https://demo.guru99.com/test/guru99home/scrolling.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "File Upload using Sikuli Demo",
+        "ref": "../../test/image_upload/",
+        "pageLink": "https://demo.guru99.com/test/image_upload/"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Cookie Handling Demo",
+        "ref": "../../test/cookie/selenium_aut.php",
+        "pageLink": "https://demo.guru99.com/test/cookie/selenium_aut.php"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Drag and Drop Action",
+        "ref": "../../test/drag_drop.html",
+        "pageLink": "https://demo.guru99.com/test/drag_drop.html"
+      },
+      {
+        "elementName": "Selenium ",
+        "pageName": "Selenium DatePicker Demo",
+        "ref": "../../test/",
+        "pageLink": "https://demo.guru99.com/test/"
+      },
+    {
+        "elementName": "SEO ",
+        "pageName": "Page-1",
+        "ref": "http://demo.guru99.com/seo/page-1.html",
+        "pageLink": "https://demo.guru99.com/seo/page-1.html"
+      },
+      {
+        "elementName": "SEO ",
+        "pageName": "Page-2",
+        "ref": "http://demo.guru99.com/seo/page-2.html",
+        "pageLink": "https://demo.guru99.com/seo/page-2.html"
+      },
+      {
+        "elementName": "SEO ",
+        "pageName": "Page-3",
+        "ref": "http://demo.guru99.com/seo/page-3.html",
+        "pageLink": "https://demo.guru99.com/seo/page-3.html"
+      },
+      {
+        "elementName": "SEO ",
+        "pageName": "Page-4",
+        "ref": "http://demo.guru99.com/seo/page-4.html",
+        "pageLink": "https://demo.guru99.com/seo/page-4.html"
+      },
+      {
+        "elementName": "SEO ",
+        "pageName": "Page-5",
+        "ref": "http://demo.guru99.com/seo/page-5.html",
+        "pageLink": "https://demo.guru99.com/seo/page-5.html"
+      },
+      {
+        "elementName": "SEO ",
+        "pageName": "Page-6",
+        "ref": "http://demo.guru99.com/seo/page-6.html",
+        "pageLink": "https://demo.guru99.com/seo/page-6.html"
+      }
+  ]
+  

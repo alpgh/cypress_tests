@@ -1,6 +1,7 @@
 const BASEURL = 'https://demo.guru99.com/payment-gateway/process_purchasetoy.php';
+const cardData = require('../../fixtures/card.json');
 
-describe('Each payment system testing', () => {
+describe('testing each payment system cards', () => {
  
   it("Checking page elements", () => {
     cy.visit(BASEURL);
@@ -18,23 +19,25 @@ describe('Each payment system testing', () => {
 
 it ('Payment with valid Visa card', () => {
     cy.visit(BASEURL);
-    cy.enterValuesAndVerifyPlaceholder('#card_nmuber', 'Enter Your Card Number', '4284556265308975');
-    cy.get('#month').select(1);
-    cy.get('#year').select("2024");
-    cy.enterValuesAndVerifyPlaceholder('#cvv_code', 'CVV Code', '123');
-    cy.get('input[type="submit"][name="submit"]')
+    cy.enterValuesAndVerifyPlaceholder('#card_nmuber', 'Enter Your Card Number', cardData.validVisaCard.number);
+    cy.get('#month').select(cardData.validVisaCard.month);
+    cy.get('#year').select(cardData.validVisaCard.year);
+    cy.enterValuesAndVerifyPlaceholder('#cvv_code', 'CVV Code', cardData.validVisaCard.cvv);
+    cy.get('input[type="submit"]')
       .should("be.visible")
       .click();
     cy.checkingVisibilityAndText('#three  h2', 'Payment successfull!');
+   // cy.testSectionTitle('#three  table', "OrderID");
+   // cy.testSectionTitle('a.button.special[href="purchasetoy.php"]', 'Home');
  });
 
  it ('Payment with valid MC card', () => {
     cy.visit(BASEURL);
-    cy.enterValuesAndVerifyPlaceholder('#card_nmuber', 'Enter Your Card Number', '5361589678286187');
-    cy.get('#month').select(1);
-    cy.get('#year').select("2027");
-    cy.enterValuesAndVerifyPlaceholder('#cvv_code', 'CVV Code', '321');
-    cy.get('input[type="submit"][name="submit"]')
+    cy.enterValuesAndVerifyPlaceholder('#card_nmuber', 'Enter Your Card Number', cardData.validMasterCard.number);
+    cy.get('#month').select(cardData.validMasterCard.month);
+    cy.get('#year').select(cardData.validMasterCard.year);
+    cy.enterValuesAndVerifyPlaceholder('#cvv_code', 'CVV Code', cardData.validMasterCard.cvv);
+    cy.get('input[type="submit"]')
       .should("be.visible")
       .click();
     cy.checkingVisibilityAndText('#three  h2', 'Payment successfull!');
@@ -43,11 +46,11 @@ it ('Payment with valid Visa card', () => {
 
  it ('Payment with valid AE card', () => {
     cy.visit(BASEURL);
-    cy.enterValuesAndVerifyPlaceholder('#card_nmuber', 'Enter Your Card Number', '341245912634901');
-    cy.get('#month').select(12);
-    cy.get('#year').select("2023");
-    cy.enterValuesAndVerifyPlaceholder('#cvv_code', 'CVV Code', '9633');
-    cy.get('input[type="submit"][name="submit"]')
+    cy.enterValuesAndVerifyPlaceholder('#card_nmuber', 'Enter Your Card Number', cardData.validAECard.number);
+    cy.get('#month').select(cardData.validAECard.month);
+    cy.get('#year').select(cardData.validAECard.year);
+    cy.enterValuesAndVerifyPlaceholder('#cvv_code', 'CVV Code', cardData.validAECard.cvv);
+    cy.get('input[type="submit"]')
       .should("be.visible")
       .click();
     
@@ -61,11 +64,11 @@ it ('Payment with valid Visa card', () => {
 
  it ('Payment with valid Discover card', () => {
     cy.visit(BASEURL);
-    cy.enterValuesAndVerifyPlaceholder('#card_nmuber', 'Enter Your Card Number', '6011404586541973');
-    cy.get('#month').select(6);
-    cy.get('#year').select("2028");
-    cy.enterValuesAndVerifyPlaceholder('#cvv_code', 'CVV Code', '021');
-    cy.get('input[type="submit"][name="submit"]')
+    cy.enterValuesAndVerifyPlaceholder('#card_nmuber', 'Enter Your Card Number', cardData.validDiscoverCard.number);
+    cy.get('#month').select(cardData.validDiscoverCard.month);
+    cy.get('#year').select(cardData.validDiscoverCard.year);
+    cy.enterValuesAndVerifyPlaceholder('#cvv_code', 'CVV Code', cardData.validDiscoverCard.cvv);
+    cy.get('input[type="submit"]')
       .should("be.visible")
       .click();
     cy.checkingVisibilityAndText('#three  h2', 'Payment successfull!');

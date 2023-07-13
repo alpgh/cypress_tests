@@ -1,0 +1,40 @@
+{
+    "CardNumber": {
+        "short": "12345678912345",
+        "containsChar": "12345678912345qw",
+        "containsSpechar": "12345678912345/:",
+        "long": "12345678912345678"
+    },
+     "CVV":       {
+        "short": "12",
+        "long": "12345",
+        "containsChar": "12q",
+        "containsSpecchar": "12/"
+
+    },
+    
+    "validVisaCard": {
+        "number": "4265789656124236",
+        "month": "03",
+        "year": "2025",
+        "cvv":"123"
+    },
+    "validMasterCard": {
+        "number": "5361589678286187",
+        "month": "02",
+        "year": "2026",
+        "cvv":"321"
+    },
+    "validAECard": {
+        "number": "341245912634901",
+        "month": "11",
+        "year": "2025",
+        "cvv":"9999"
+    },
+    "validDiscoverCard": {
+        "number": "6011404586541973",
+        "month": "11",
+        "year": "2027",
+        "cvv":"999"
+    }
+}
