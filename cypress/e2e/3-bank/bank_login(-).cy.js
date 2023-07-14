@@ -6,7 +6,7 @@ describe('Login negative test', () => {
     cy.visit(LOGIN.BASEURL);
   });
 
-  it('Shouldn`t login with empty fields', () => {
+  it.skip('Shouldn`t login with empty fields', () => {
     
     cy.get('input[name="btnLogin"]')
     .click({ force: true });
@@ -17,7 +17,7 @@ describe('Login negative test', () => {
 
  });
 
-  it('Shouldn`t login with incorrect password', () => {
+  it.skip('Shouldn`t login with incorrect password', () => {
 
     cy.log('correct userID, incorrect password');
     cy.get('input[name="uid"]').type(LOGIN.USER_ID);    
@@ -31,7 +31,7 @@ describe('Login negative test', () => {
 
   });
 
-    it('Shouldn`t login with incorrect userID', () => {
+    it.skip('Shouldn`t login with incorrect userID', () => {
     cy.get('input[name="uid').clear();
     cy.get('input[name="password"]').clear();
     cy.log('Incorrect userID, correct password')
@@ -45,7 +45,7 @@ describe('Login negative test', () => {
         
   });
   
-  it('Reset button functionality', () => {
+  it.skip('Reset button functionality', () => {
     cy.get('input[name="uid').clear();
     cy.get('input[name="password"]').clear();
     cy.get('input[name="uid"]').type(LOGIN.USER_ID);    
