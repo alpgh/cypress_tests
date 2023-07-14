@@ -1,10 +1,9 @@
-const BASEURL = 'https://demo.guru99.com/payment-gateway/process_purchasetoy.php';
 const cardData = require('../../fixtures/card.json');
-const SUCCESSURL = 'https://demo.guru99.com/payment-gateway/purchasetoy.php';
+
 describe('testing each payment system cards', () => {
  
   it("Checking page elements", () => {
-    cy.visit(BASEURL);
+    cy.visit(cardData.BASEURL);
     cy.checkingVisibilityAndText('a.logo','Guru99 Payment Gateway');
     cy.checkingVisibilityAndText('#nav a:nth-child(1)', 'Cart');
     cy.checkingVisibilityAndText('#nav a:nth-child(2)','Generate Card Number');
@@ -18,7 +17,7 @@ describe('testing each payment system cards', () => {
   });
 
 it ('Payment with valid Visa card', () => {
-    cy.visit(BASEURL);
+    cy.visit(cardData.BASEURL);
     cy.enterValuesAndVerifyPlaceholder('#card_nmuber', 'Enter Your Card Number', cardData.validVisaCard.number);
     cy.get('#month').select(cardData.validVisaCard.month);
     cy.get('#year').select(cardData.validVisaCard.year);
@@ -26,15 +25,16 @@ it ('Payment with valid Visa card', () => {
     cy.get('input[type="submit"]')
       .should("be.visible")
       .click();
+    cy.url().should('contain', cardData.ORDERURL);
     cy.checkingVisibilityAndText('#three  h2', 'Payment successfull!');
     cy.checkingVisibilityAndText(':nth-child(1)>h3', "Order ID");
     cy.checkingVisibilityAndText('a.button.special[href="purchasetoy.php"]', 'Home')
     .click();
-    cy.url().should('eq', SUCCESSURL);
+    cy.url().should('eq', cardData.SUCCESSURL);
  });
 
  it ('Payment with valid MC card', () => {
-    cy.visit(BASEURL);
+    cy.visit(cardData.BASEURL);
     cy.enterValuesAndVerifyPlaceholder('#card_nmuber', 'Enter Your Card Number', cardData.validMasterCard.number);
     cy.get('#month').select(cardData.validMasterCard.month);
     cy.get('#year').select(cardData.validMasterCard.year);
@@ -42,16 +42,17 @@ it ('Payment with valid Visa card', () => {
     cy.get('input[type="submit"]')
       .should("be.visible")
       .click();
+    cy.url().should('contain', cardData.ORDERURL);
     cy.checkingVisibilityAndText('#three  h2', 'Payment successfull!');
     cy.checkingVisibilityAndText(':nth-child(1)>h3', "Order ID");
     cy.checkingVisibilityAndText('a.button.special[href="purchasetoy.php"]', 'Home')
     .click();
-    cy.url().should('eq', SUCCESSURL);    
+    cy.url().should('eq', cardData.SUCCESSURL);    
 
  });
 
  it ('Payment with valid AE card', () => {
-    cy.visit(BASEURL);
+    cy.visit(cardData.BASEURL);
     cy.enterValuesAndVerifyPlaceholder('#card_nmuber', 'Enter Your Card Number', cardData.validAECard.number);
     cy.get('#month').select(cardData.validAECard.month);
     cy.get('#year').select(cardData.validAECard.year);
@@ -59,17 +60,17 @@ it ('Payment with valid Visa card', () => {
     cy.get('input[type="submit"]')
       .should("be.visible")
       .click();
-    
+    cy.url().should('eq', cardData.ORDERURL);
     cy.checkingVisibilityAndText('#three  h2', 'Payment successfull!');
-    cy.on('window:alert', (text) => {
-        expect(text).to.eq('Check card number is 16 digits!');
-    });
-      cy.on('window:confirm', () => true);
-     
+    cy.checkingVisibilityAndText(':nth-child(1)>h3', "Order ID");
+    cy.checkingVisibilityAndText('a.button.special[href="purchasetoy.php"]', 'Home')
+    .click();
+    cy.url().should('eq', cardData.SUCCESSURL); 
+    
  });
 
  it ('Payment with valid Discover card', () => {
-    cy.visit(BASEURL);
+    cy.visit(cardData.BASEURL);
     cy.enterValuesAndVerifyPlaceholder('#card_nmuber', 'Enter Your Card Number', cardData.validDiscoverCard.number);
     cy.get('#month').select(cardData.validDiscoverCard.month);
     cy.get('#year').select(cardData.validDiscoverCard.year);
@@ -77,11 +78,12 @@ it ('Payment with valid Visa card', () => {
     cy.get('input[type="submit"]')
       .should("be.visible")
       .click();
-    cy.checkingVisibilityAndText('#three  h2', 'Payment successfull!');
-    cy.checkingVisibilityAndText(':nth-child(1)>h3', "Order ID");
-    cy.checkingVisibilityAndText('a.button.special[href="purchasetoy.php"]', 'Home')
-    .click();
-    cy.url().should('eq', SUCCESSURL);
+    cy.url().should('contain', cardData.ORDERURL);
+     cy.checkingVisibilityAndText('#three  h2', 'Payment successfull!');
+     cy.checkingVisibilityAndText(':nth-child(1)>h3', "Order ID");
+     cy.checkingVisibilityAndText('a.button.special[href="purchasetoy.php"]', 'Home')
+     .click();
+     cy.url().should('eq', cardData.SUCCESSURL);
     
  });
 

@@ -6,7 +6,7 @@ describe('Adding plan(-)', () => {
   });
 
   it('Shouldn`t add plan with incorrect rental', () => {
-    cy.get('#rental1').type(TARIFF.CHAR_VALUE); // char
+    cy.get('#rental1').type(TARIFF.CHAR_VALUE); 
     cy.checkingVisibilityAndText('label#message2', 'Characters are not allowed');
     cy.get('#local_minutes').type(TARIFF.AVERAGE_VALUE);
     cy.get('#inter_minutes').type(TARIFF.MIN_VALUE);
@@ -19,7 +19,7 @@ describe('Adding plan(-)', () => {
 
   it('Shouldn`t add plan with incorrect local minutes', () => {
     cy.get('#rental1').type(TARIFF.AVERAGE_VALUE);
-    cy.get('#local_minutes').click(); // empty
+    cy.get('#local_minutes').click(); 
     cy.get('#inter_minutes').type(TARIFF.MAX_VALUE1);
     cy.checkingVisibilityAndText('label#message3', 'Number must not be blank');
     cy.get('#sms_pack').type(TARIFF.AVERAGE_VALUE);

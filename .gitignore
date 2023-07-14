@@ -3,10 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-payment_gateway(-).cy.js
+# Ignore 1-getting-started 
+e2e/1-getting-started/
 
-1-getting-started/
-2-advanced-examples/
+# Ignore 2-advanced-examples 
+e2e/2-advanced-examples/
+
 # User-specific files
 *.rsuser
 *.suo
