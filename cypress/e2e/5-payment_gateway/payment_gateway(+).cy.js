@@ -1,6 +1,6 @@
 const BASEURL = 'https://demo.guru99.com/payment-gateway/process_purchasetoy.php';
 const cardData = require('../../fixtures/card.json');
-
+const SUCCESSURL = 'https://demo.guru99.com/payment-gateway/purchasetoy.php';
 describe('testing each payment system cards', () => {
  
   it("Checking page elements", () => {
@@ -27,8 +27,10 @@ it ('Payment with valid Visa card', () => {
       .should("be.visible")
       .click();
     cy.checkingVisibilityAndText('#three  h2', 'Payment successfull!');
-   // cy.testSectionTitle('#three  table', "OrderID");
-   // cy.testSectionTitle('a.button.special[href="purchasetoy.php"]', 'Home');
+    cy.checkingVisibilityAndText(':nth-child(1)>h3', "Order ID");
+    cy.checkingVisibilityAndText('a.button.special[href="purchasetoy.php"]', 'Home')
+    .click();
+    cy.url().should('eq', SUCCESSURL);
  });
 
  it ('Payment with valid MC card', () => {
@@ -41,6 +43,10 @@ it ('Payment with valid Visa card', () => {
       .should("be.visible")
       .click();
     cy.checkingVisibilityAndText('#three  h2', 'Payment successfull!');
+    cy.checkingVisibilityAndText(':nth-child(1)>h3', "Order ID");
+    cy.checkingVisibilityAndText('a.button.special[href="purchasetoy.php"]', 'Home')
+    .click();
+    cy.url().should('eq', SUCCESSURL);    
 
  });
 
@@ -72,6 +78,10 @@ it ('Payment with valid Visa card', () => {
       .should("be.visible")
       .click();
     cy.checkingVisibilityAndText('#three  h2', 'Payment successfull!');
+    cy.checkingVisibilityAndText(':nth-child(1)>h3', "Order ID");
+    cy.checkingVisibilityAndText('a.button.special[href="purchasetoy.php"]', 'Home')
+    .click();
+    cy.url().should('eq', SUCCESSURL);
     
  });
 

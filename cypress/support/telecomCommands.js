@@ -92,10 +92,10 @@
   
   Cypress.Commands.add('fillPaymentFields', () => {
     cy.fixture('card.json').then((cardData) => {
-      cy.get('#card_nmuber').type(cardData.validCard.number);
-      cy.get('#month').select(cardData.validCard.month);
-      cy.get('#year').select(cardData.validCard.year);
-      cy.get('#cvv_code').type(cardData.validCard.cvv);
+      cy.get('#card_nmuber').type(cardData.validVisaCard.number);
+      cy.get('#month').select(cardData.validVisaCard.month);
+      cy.get('#year').select(cardData.validVisaCard.year);
+      cy.get('#cvv_code').type(cardData.validVisaCard.cvv);
 
     });
   });

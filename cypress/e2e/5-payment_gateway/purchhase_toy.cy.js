@@ -14,10 +14,10 @@ describe('Purchase Toy Test', () => {
   
   it("changing quantity and proceed", () => {
     cy.visit(BASEURL, { timeout: 60000 }); 
-
-    Array.from({ length: 8 }, (_, i) => i + 2).forEach((i) => {
+  
+    for (let i = 2; i <= 9; i++) {
       cy.get('select[name="quantity"]').should("be.visible").select(`${i}`);
-
+  
       cy.get('[type="submit"]').should("be.visible").click();
       cy.get('font[color="red"]')
         .should("be.visible")
@@ -25,9 +25,9 @@ describe('Purchase Toy Test', () => {
       cy.get('input[type="submit"][name="submit"]')
         .should("be.visible")
         .should("contain.value", `$${(i * 20).toFixed(2)}`).wait(2000);
-
+  
       cy.go("back");
-    });
+    }
   });
 });
 
