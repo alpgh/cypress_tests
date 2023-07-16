@@ -34,9 +34,8 @@ describe('Adding plan and reset button checking', () => {
       .and('have.css', 'height', '49px');
   });
 
-  it('Adding plan with maximal values', () => {
+  it('Adding plan with maximal values', () => {    
     cy.log('Testing maximal values');
-
     cy.enterValuesAndVerifyPlaceholder('#rental1', 'Monthly Rental', TARIFF.MAX_VALUE1);
     cy.enterValuesAndVerifyPlaceholder('#local_minutes', 'Free Local Minutes', TARIFF.MAX_VALUE1);
     cy.enterValuesAndVerifyPlaceholder('#inter_minutes', 'Free International Minutes', TARIFF.MAX_VALUE1);
@@ -44,12 +43,17 @@ describe('Adding plan and reset button checking', () => {
     cy.enterValuesAndVerifyPlaceholder('#minutes_charges', 'Local Per Minutes Charges', TARIFF.MAX_VALUE2);
     cy.enterValuesAndVerifyPlaceholder('#inter_charges', 'Inter. Per Minutes Charges', TARIFF.MAX_VALUE2);
     cy.enterValuesAndVerifyPlaceholder('#sms_charges', 'SMS Per Charges', TARIFF.MAX_VALUE2);
-
-    cy.get('[type="submit"]').click();
+    cy.get('[type="submit"]')
+      .click();
     cy.checkingVisibilityAndText('#main>div h2', 'Congratulation you add Tariff Plan');
-    cy.checkingVisibilityAndText('a.button', 'Home')
+    cy.checkingVisibilityAndText('a.button', 'Home')    
+      .should('have.css', 'cursor', 'pointer')
+      .and('have.css', 'background-color', 'rgb(246, 117, 94)')
+      .and('have.css', 'color', 'rgb(255, 255, 255)')
       .click();
     cy.checkingVisibilityAndText('h3 a[href="addtariffplans.php"]', 'Add Tariff Plan')
+      .should('have.css', 'color', 'rgb(37, 162, 195)')
+      .and('have.css', 'background-color', 'rgba(0, 0, 0, 0)')    
       .click();
   });
 
@@ -63,12 +67,17 @@ describe('Adding plan and reset button checking', () => {
     cy.enterValuesAndVerifyPlaceholder('#minutes_charges', 'Local Per Minutes Charges', TARIFF.MIN_VALUE);
     cy.enterValuesAndVerifyPlaceholder('#inter_charges', 'Inter. Per Minutes Charges', TARIFF.MIN_VALUE);
     cy.enterValuesAndVerifyPlaceholder('#sms_charges', 'SMS Per Charges', TARIFF.MIN_VALUE);
-
-    cy.get('[type="submit"]').click();
+    cy.get('[type="submit"]')
+    .click();
     cy.checkingVisibilityAndText('#main>div h2', 'Congratulation you add Tariff Plan');
-    cy.checkingVisibilityAndText('a.button', 'Home')
+    cy.checkingVisibilityAndText('a.button', 'Home')    
+      .should('have.css', 'cursor', 'pointer')
+      .and('have.css', 'background-color', 'rgb(246, 117, 94)')
+      .and('have.css', 'color', 'rgb(255, 255, 255)')
       .click();
     cy.checkingVisibilityAndText('h3 a[href="addtariffplans.php"]', 'Add Tariff Plan')
+      .should('have.css', 'color', 'rgb(37, 162, 195)')
+      .and('have.css', 'background-color', 'rgba(0, 0, 0, 0)')    
       .click();
   });
 
@@ -82,10 +91,13 @@ describe('Adding plan and reset button checking', () => {
     cy.get('#minutes_charges').type(TARIFF.MAX_VALUE2);
     cy.get('#inter_charges').type(TARIFF.MAX_VALUE2);
     cy.get('#sms_charges').type(TARIFF.MAX_VALUE2);
-
-    cy.get('[type="reset"]').click();
-    cy.get('[type="submit"]').click();
-
-    cy.url().should('eq', TARIFF.BASEURL);
+    cy.get('[type="reset"]')
+    .click();
+    cy.get('[type="submit"]')
+    .click();
+    cy.url()
+      .should('eq', TARIFF.BASEURL);
+    cy.get('#main>div h2')
+      .should('not.have.text', 'Congratulation you add Tariff Plan');
   });
 });

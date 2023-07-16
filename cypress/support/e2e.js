@@ -15,11 +15,12 @@
 
 // Import commands.js using ES2015 syntax:
 import "./commands";
+
 Cypress.on("uncaught:exception", (error) => {
   console.error(error);
   return false;
 });
 
-import "./telecomCommands";
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

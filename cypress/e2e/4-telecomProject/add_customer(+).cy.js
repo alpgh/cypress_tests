@@ -33,7 +33,7 @@ describe('Successful adding new customer', () => {
       cy.enterValuesAndVerifyPlaceholder('#email', 'Email', customer.email);
       cy.enterValuesAndVerifyPlaceholder('[name=addr]', 'Enter your address', customer.address);
       cy.enterValuesAndVerifyPlaceholder('#telephoneno', 'Mobile Number', customer.mobileNumber);
-      cy.get('input[type=submit]').click();
+      cy.get('input[type=submit]').click(); //css
 
       cy.checkUserStatusIsActive(true);
     });

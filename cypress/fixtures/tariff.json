@@ -1,5 +1,5 @@
 {
-    "BASEURL": "http://demo.guru99.com/telecom/addtariffplans.php",
+    "BASEURL": "https://demo.guru99.com/telecom/addtariffplans.php",
     "MAX_VALUE1": "99999",
     "MAX_VALUE2": "999",
     "MIN_VALUE": "0",

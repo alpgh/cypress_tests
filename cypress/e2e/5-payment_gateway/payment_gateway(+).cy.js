@@ -4,7 +4,7 @@ describe('testing each payment system cards', () => {
  
   it("Checking page elements", () => {
     cy.visit(cardData.BASEURL);
-    cy.checkingVisibilityAndText('a.logo','Guru99 Payment Gateway');
+    cy.checkingVisibilityAndText('a.logo','Guru99 Payment Gateway'); // contains href
     cy.checkingVisibilityAndText('#nav a:nth-child(1)', 'Cart');
     cy.checkingVisibilityAndText('#nav a:nth-child(2)','Generate Card Number');
     cy.checkingVisibilityAndText('#nav a:nth-child(3)','Check Credit Card Limit');

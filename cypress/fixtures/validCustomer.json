@@ -1,8 +1,9 @@
 {
+    "BASEURL": "https://demo.guru99.com/telecom/addcustomer.php",
+    "errorData": [" ", "123", "///", "абв", "asdf@asdfre", "asdf.com", "abc"],
     "firstName": "Alex",
     "lastName": "Allmighty",
     "email": "qqnder@gmail.com",
     "address": "32032 sok Inova plus a blok 28",
-    "mobileNumber": "90534636894",
-    "error":[" t", "123", "//", "abc" ]
+    "mobileNumber": "90534636894"    
 }
