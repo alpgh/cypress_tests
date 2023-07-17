@@ -1,6 +1,6 @@
 {
     "BASEURL": "https://demo.guru99.com/telecom/addcustomer.php",
-    "errorData": [" ", "123", "///", "абв", "asdf@asdfre", "asdf.com", "abc"],
+    "errorData": [" ", "123", "///", "абв", "asdf@asdfre", "asdf.com", "abc", "@gmail.com", "фыва@фыва.ру"],
     "firstName": "Alex",
     "lastName": "Allmighty",
     "email": "qqnder@gmail.com",

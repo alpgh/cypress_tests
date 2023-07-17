@@ -21,7 +21,6 @@ describe('Purchase Toy Test', () => {
   });
 
   it("Short card number value", () => {
-
     cy.log('Entering short CardNumber');
     cy.fillPaymentFields();
     cy.get('#card_nmuber').clear();
@@ -36,7 +35,6 @@ describe('Purchase Toy Test', () => {
   });
 
   it("long card number value", () => {
-
     cy.log('Entering long CardNumber');
     cy.fillPaymentFields();
     cy.get('#card_nmuber').clear();
@@ -122,7 +120,7 @@ describe('Purchase Toy Test', () => {
     cy.get('#cvv_code').clear();
     cy.enterValuesAndVerifyPlaceholder('#cvv_code', "CVV Code", cardData.CVV.short);
     cy.get('#cvv_code')
-    .should('have.value', cardData.CVV.short);
+      .should('have.value', cardData.CVV.short);
     cy.get('input[type="submit"]')
       .click();
     cy.url().should('eq', cardData.BASEURL);
@@ -134,7 +132,7 @@ describe('Purchase Toy Test', () => {
     cy.get('#cvv_code').clear();
     cy.enterValuesAndVerifyPlaceholder('#cvv_code', "CVV Code", cardData.CVV.long);
     cy.get('#cvv_code')
-    .should('have.value', cardData.CVV.long);
+      .should('have.value', cardData.CVV.long);
     cy.get('input[type="submit"]')
       .click();
     cy.url().should('eq', cardData.BASEURL);
@@ -147,7 +145,7 @@ describe('Purchase Toy Test', () => {
     cy.enterValuesAndVerifyPlaceholder('#cvv_code', "CVV Code", cardData.CVV.containsChar);
     cy.checkingVisibilityAndText('#message2','Characters are not allowed');
     cy.get('#cvv_code')
-    .should('have.value', cardData.CVV.containsChar);
+      .should('have.value', cardData.CVV.containsChar);
     cy.get('input[type="submit"]')
       .click();
     cy.url().should('eq', cardData.BASEURL);
@@ -160,7 +158,7 @@ describe('Purchase Toy Test', () => {
     cy.enterValuesAndVerifyPlaceholder('#cvv_code', "CVV Code", cardData.CVV.containsSpecchar);
     cy.checkingVisibilityAndText('#message2','Special characters are not allowed');
     cy.get('#cvv_code')
-    .should('have.value', cardData.CVV.containsSpecchar);
+      .should('have.value', cardData.CVV.containsSpecchar);
     cy.get('input[type="submit"]')
       .click();
     cy.url().should('eq', cardData.BASEURL);

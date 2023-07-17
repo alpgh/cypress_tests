@@ -1,34 +1,57 @@
-const BASEURL = 'https://demo.guru99.com/payment-gateway/purchasetoy.php';
+const cardData = require('../../fixtures/card.json');
 
 describe('Purchase Toy Test', () => {
  
   it("Checking page elements", () => {
-    cy.visit(BASEURL, { timeout: 6000 });
-    cy.checkingVisibilityAndText('a.logo','Guru99 Payment Gateway');
-    cy.checkingVisibilityAndText('#nav a:nth-child(1)', 'Cart');
-    cy.checkingVisibilityAndText('#nav a:nth-child(2)','Generate Card Number');
-    cy.checkingVisibilityAndText('#nav a:nth-child(3)','Check Credit Card Limit');
-    cy.get('div:nth-child(1) > p img').should('be.visible');
-  
+    cy.visit(cardData.SUCCESSURL);
+    cy.checkingVisibilityAndText('a.logo','Guru99 Payment Gateway')
+      .should('have.attr', 'href', 'purchasetoy.php');
+    cy.checkingVisibilityAndText('#nav a[href="purchasetoy.php"', 'Cart')
+      .should('have.attr', 'href', 'purchasetoy.php');
+    cy.checkingVisibilityAndText('#nav a[href="cardnumber.php"','Generate Card Number')
+      .should('have.attr', 'href', 'cardnumber.php');
+    cy.checkingVisibilityAndText('#nav a[href="check_credit_balance.php"','Check Credit Card Limit')
+      .should('have.attr', 'href', 'check_credit_balance.php');
+
+    cy.get('img[src="images/Toy.jpg"]')
+      .should('be.visible')
+      .and('have.attr', 'src');
+    cy.get('[name="quantity"]')
+      .should('be.visible')
+      .and('have.css', 'color', 'rgb(255, 255, 255)')
+      .and('have.css', 'background-color', 'rgb(108, 192, 145)');
+    cy.get('[type="submit"]')
+      .should('be.visible')
+      .and('have.css', 'color', 'rgb(255, 255, 255)')
+      .and('have.css', 'background-color', 'rgb(108, 192, 145)')
+      .and('have.css', 'cursor', 'pointer');
   });
   
   it("changing quantity and proceed", () => {
-    cy.visit(BASEURL, { timeout: 60000 }); 
-  
+    cy.visit(cardData.SUCCESSURL);  
     for (let i = 2; i <= 9; i++) {
-      cy.get('select[name="quantity"]').should("be.visible").select(`${i}`);
-  
-      cy.get('[type="submit"]').should("be.visible").click();   //invoke, url 
-      cy.get('font[color="red"]')
-        .should("be.visible")
-        .should("contain.text", `$${(i * 20).toFixed(2)}`);
-      cy.get('input[type="submit"][name="submit"]')
-        .should("be.visible")
-        .should("contain.value", `$${(i * 20).toFixed(2)}`).wait(2000);
-  
-      cy.go("back");
+    cy.get('select[name="quantity"]')
+      .should("be.visible")
+      .select(`${i}`);
+    cy.get('h3[style]')
+      .invoke('text')
+      .then((text) => {
+    const price = text.match(/\$\d+/)[0].slice(1);
+    cy.get('[type="submit"]')
+      .click();
+    cy.get('font[color="red"]')
+      .should("be.visible")
+      .should("contain.text", `$${(i * price).toFixed(2)}`);
+    cy.get('input[type="submit"][name="submit"]')
+      .should("be.visible")
+      .should("contain.value", `$${(i * price).toFixed(2)}`);
+    cy.go("back");
+      });
     }
-  });
+});
+  
+
+
 });
 
 

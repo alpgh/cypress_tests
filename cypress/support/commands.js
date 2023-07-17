@@ -47,7 +47,7 @@ Cypress.Commands.add('testHamMenuItem', (selector, expectedText) => {
     .should('have.length', 1)
     .should('have.text', expectedText)
     .and('have.css', 'webkit-tap-highlight-color', 'rgba(0, 0, 0, 0)')
-    .and('have.css', 'line-height', '51px');    
+    .and('have.css', 'line-height', '49px');    
 });
 
 Cypress.Commands.add('testLogoLink', (selector, expectedText, expectedHref) => {
@@ -160,3 +160,15 @@ Cypress.Commands.add('fillPaymentFields', () => {
       cy.get('#sms_charges').clear().type(tariffData.AVERAGE_VALUE);
     });
   });
+
+  
+  Cypress.Commands.add('checkErrorMessageAndURL', (selector, errorMessage) => {
+    cy.fixture('validCustomer.json').then((custData) => {
+      cy.get(selector)
+      .should('be.visible')
+      .and('contain', errorMessage);
+    cy.get('#main input[type=submit]')
+      .click();
+    cy.url().should('eq', custData.BASEURL);
+  });
+ });

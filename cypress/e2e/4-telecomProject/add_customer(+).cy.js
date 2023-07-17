@@ -15,11 +15,11 @@ describe('Successful adding new customer', () => {
     cy.log('Testing hamburger menu');
     cy.get('#header a:nth-child(1)')
     .should('have.length', 1).click();
-    cy.testHamMenuItem('#menu li:nth-child(1)', 'Home');
-    cy.testHamMenuItem('#menu li:nth-child(2)', 'Add Customer');
-    cy.testHamMenuItem('#menu li:nth-child(3)', 'Add Tariff Plans');
-    cy.testHamMenuItem('#menu li:nth-child(4)', 'Add Tariff Plan to Customer');
-    cy.testHamMenuItem('#menu li:nth-child(5)', 'Pay Billing');
+    cy.testHamMenuItem('li [href="index.html"]', 'Home');
+    cy.testHamMenuItem('li [href="addcustomer.php"]', 'Add Customer');
+    cy.testHamMenuItem('li [href="addtariffplans.php"]', 'Add Tariff Plans');
+    cy.testHamMenuItem('li [href="assigntariffplantocustomer.php"]', 'Add Tariff Plan to Customer');
+    cy.testHamMenuItem('li [href="billing.php"]', 'Pay Billing');
     cy.get('a.close').click();
   });
  
